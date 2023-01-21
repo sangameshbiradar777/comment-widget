@@ -1,38 +1,72 @@
+/* Styles Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Setting the font size to 10px for easy calculations */
+/* 10 % 16 * 100 = 62.5% */
+:root {
+  font-size: 62.5%;
+}
+
+/* Color Palette */
+:root {
+  --primary-main: #3AB3FF;
+  --text-dark-01: #222;
+  /* --text-grey-01: #C3CCCD; */
+  /* --text-grey-02: #D0D6D6; */
+  --text-grey-01: #777;
+  --text-grey-02: #888;
+}
+
+/* Type Scale */
+:root {
+  --fs-01: 2.281rem;
+  --fs-02: 2.027rem;
+  --fs-03: 1.802rem;
+  --fs-04: 1.602rem;
+  --fs-05: 1.484rem;
+  --fs-06: 1.266rem;
+  --fs-07: 1.125rem;
+}
+
+/* Spacing System */
+:root {
+  --spacing-01: 0.125rem;
+  --spacing-02: 0.25rem;
+  --spacing-03: 0.5rem;
+  --spacing-04: 0.75rem;
+  --spacing-05: 1rem;
+  --spacing-06: 1.5rem;
+  --spacing-07: 2rem;
+  --spacing-08: 2.5rem;
+  --spacing-09: 3rem;
+  --spacing-10: 4rem;
+  --spacing-11: 5rem;
+  --spacing-12: 6rem;
+  --spacing-13: 10rem;
+  --spacing-14: 16rem;
+  --spacing-15: 32rem;
+}
+
 .App {
-  text-align: center;
+  width: min(90%, 760px);
+  margin: var(--spacing-10) auto;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.main {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: var(--spacing-06);
 }
 
-.App-link {
-  color: #61dafb;
+/* General Styles */
+
+.btn {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}

@@ -1,0 +1,103 @@
+.comments-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-08);
+}
+
+.comments {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-06);
+}
+
+.comments > .comments {
+  margin-left: var(--spacing-07);
+}
+
+.comment {
+  display: flex;
+  gap: var(--spacing-06);
+}
+
+.comment__user-img-container {
+  height: var(--spacing-10);
+}
+
+.comments > .comments .comment__user-img-container {
+  height: var(--spacing-09);
+}
+
+.comment__user-img {
+  height: 100%;
+}
+
+.comment__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-02);
+  flex: 1;
+}
+
+.comment__content__info {
+  display: flex;
+  gap: var(--spacing-04);
+  align-items: center;
+}
+
+.comment__content__info__username {
+  font-size: var(--fs-05);
+  color: var(--primary-main);
+}
+
+.comment__content__info__replied-to-user {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-02);
+  font-size: var(--fs-06);
+  color: var(--text-grey-02);
+}
+
+.comment__content__info__commented-at {
+  font-size: var(--fs-06);
+  color: var(--text-grey-01);
+}
+
+.comment__content__edit__input {
+  padding: var(--spacing-03);
+  font-size: var(--fs-05);
+  width: 100%;
+}
+
+.comment__content__text {
+  font-size: var(--fs-04);
+  color: var(--text-dark-01);
+}
+
+.comment__actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-04);
+}
+
+.comment__actions__btns {
+  display: flex;
+  gap: var(--spacing-06);
+  padding-top: var(--spacing-03);
+}
+
+.comment__actions__btn {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-03);
+  font-size: var(--fs-06);
+  color: var(--text-grey-02);
+}
+
+.comment__actions .comment-box__user-img-container {
+  width: var(--spacing-09);
+  height: var(--spacing-09);
+}
+
+.comment__actions .comment-box__input {
+  font-size: var(--fs-05);
+}

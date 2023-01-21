@@ -1,0 +1,27 @@
+.comment-box {
+  display: flex;
+  gap: var(--spacing-06);
+}
+
+.comment-box__user-img-container {
+  height: var(--spacing-10);
+  width: var(--spacing-10);
+}
+
+.comment-box__user-img {
+  width: 100%;
+  height: 100%;
+}
+
+.comment-box__input-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.comment-box__input {
+  font-size: var(--fs-04);
+  height: 100%;
+  padding: 0 var(--spacing-04);
+  flex: 1;
+  flex-shrink: 0;
+}
