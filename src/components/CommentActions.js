@@ -13,7 +13,6 @@ const CommentActions = ({ comment, setIsEditing }) => {
   const isUserLikedComment = comment.likedBy.includes(currentUser?.id);
 
   useEffect(() => {
-    console.log(currentUser)
     localStorage.setItem("currentUser", JSON.stringify(currentUser));
   }, [currentUser]);
 
