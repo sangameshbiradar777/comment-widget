@@ -13,12 +13,19 @@
 
 /* Color Palette */
 :root {
-  --primary-main: #3AB3FF;
+  --primary-main: #3ab3ff;
   --text-dark-01: #222;
-  /* --text-grey-01: #C3CCCD; */
-  /* --text-grey-02: #D0D6D6; */
-  --text-grey-01: #777;
-  --text-grey-02: #888;
+  --secondary-dark: #ddd;
+  --secondary-main: #efefef;
+  --text-grey-01: #7e7e7e;
+  --text-grey-02: #8e8e8e;
+  --bg-light-1: #fff;
+  --bg-light-2: #fafafa;
+  --text-light: #fff;
+  --text-dark-01: #222;
+  --text-dark-02: #444;
+  --text-dark-03: #666;
+  --error-main: #F20000;
 }
 
 /* Type Scale */
@@ -62,7 +69,17 @@
   gap: var(--spacing-06);
 }
 
+.main__header {
+  display: flex;
+  gap: var(--spacing-10);
+  justify-content: space-between;
+}
+
 /* General Styles */
+
+a {
+  width: 100%;
+}
 
 .btn {
   border: none;
@@ -70,3 +87,16 @@
   cursor: pointer;
 }
 
+.btn, input {
+  border-radius: var(--spacing-03);
+}
+
+input {
+  border: 1px solid var(--secondary-dark);
+}
+
+.btn:focus, 
+input:focus, 
+a:focus {
+  outline: 3px solid rgba(0, 0, 0, 0.2);
+}

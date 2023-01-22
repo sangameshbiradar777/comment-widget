@@ -1,0 +1,75 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: var(--spacing-06);
+  align-items: center;
+}
+
+.navbar__logo {
+  display: flex;
+  align-items: center;
+  font-size: var(--fs-04);
+  gap: var(--spacing-03);
+   color: var(--text-dark-03);
+}
+
+.navbar__logo [name='repeat'] {
+  width: var(--spacing-09);
+  height: var(--spacing-09);
+ 
+}
+
+.navbar__info {
+  display: flex;
+  gap: var(--spacing-06);
+}
+
+.navbar__user {
+  display: flex;
+  gap: var(--spacing-03);
+  align-items: center;
+}
+
+.navbar__user__avatar {
+  width: var(--spacing-08);
+  height: var(--spacing-08);
+}
+
+.navbar__user__name {
+  font-size: var(--fs-04);
+}
+
+.navbar__actions {
+  display: flex;
+  gap: var(--spacing-06);
+}
+
+.navbar__actions .btn {
+  padding: var(--spacing-05) var(--spacing-08)
+}
+
+.navbar__actions__login {
+  background-color: var(--secondary-main);
+}
+
+.navbar__actions__register {
+  border: 1px solid var(--secondary-dark);
+}
+
+.navbar__actions__logout {
+  border: 1px solid var(--secondary-dark);
+  
+}
+
+@media screen and (max-width: 600px) {
+  .navbar__logo__text {
+    display: none;
+  }
+
+}
+
+@media screen and (max-width: 450px) {
+  .navbar__user {
+    display: none;
+  }
+}

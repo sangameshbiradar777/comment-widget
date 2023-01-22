@@ -1,6 +1,7 @@
 .comment-box {
   display: flex;
   gap: var(--spacing-06);
+  flex: 4;
 }
 
 .comment-box__user-img-container {
@@ -16,12 +17,13 @@
 .comment-box__input-container {
   display: flex;
   flex-direction: column;
+  flex: 1;
 }
 
 .comment-box__input {
   font-size: var(--fs-04);
   height: 100%;
+  width: 100%;
   padding: 0 var(--spacing-04);
-  flex: 1;
   flex-shrink: 0;
 }

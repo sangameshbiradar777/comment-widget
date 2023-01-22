@@ -1,26 +1,42 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { likeComment, deleteComment } from "../redux/slice/commentsSlice";
 import CommentBox from "./CommentBox";
+import Error from "./Error";
 
 const CommentActions = ({ comment, setIsEditing }) => {
   const { currentUser } = useSelector((state) => state.users);
   const [isReplying, setIsReplying] = useState(false);
-  const [replyText, setReplyText] = useState('');
   const dispatch = useDispatch();
-  const isUserLikedComment = comment.likedBy.includes(currentUser.id);
+  const [isError, setIsError] = useState(false);
+  const [error, setError] = useState({});
+  const isUserLikedComment = comment.likedBy.includes(currentUser?.id);
+
+  useEffect(() => {
+    console.log(currentUser)
+    localStorage.setItem("currentUser", JSON.stringify(currentUser));
+  }, [currentUser]);
+
+  const showError = (type) => {
+    setIsError(true);
+    setError({ message: `You need to login first to ${type} any comment` });
+  }
 
   const handleOnLikeComment = () => {
+    if (!currentUser) {
+      showError('like');
+      return;
+    }
     dispatch(likeComment({ userId: currentUser.id, commentId: comment.id }));
   };
 
   const handleOnEditText = () => {
-    setIsEditing(prevState => !prevState);
-  }
+    setIsEditing((prevState) => !prevState);
+  };
 
   const handleOnDeleteComment = () => {
     dispatch(deleteComment(comment.id));
-  }
+  };
 
   return (
     <div className="comment__actions">
@@ -41,27 +57,23 @@ const CommentActions = ({ comment, setIsEditing }) => {
           <ion-icon name="return-up-back-outline"></ion-icon>
           <span>Reply</span>
         </button>
-        {comment.userId === currentUser.id && (
-          <button
-            onClick={handleOnEditText}
-            className="btn comment__actions__btn comment__actions__btn--edit"
-          >
-            <ion-icon name="create-outline"></ion-icon>
-            <span>Edit</span>
-          </button>
-        )}
-        <button className="btn comment__actions__btn comment__actions__btn--share">
-          <ion-icon name="share-social-outline"></ion-icon>
-          <span>Share</span>
-        </button>
-        {comment.userId === currentUser.id && (
-          <button
-            onClick={handleOnDeleteComment}
-            className="btn comment__actions__btn comment__actions__btn--delete"
-          >
-            <ion-icon name="trash-outline"></ion-icon>
-            <span>Delete</span>
-          </button>
+        {comment.userId === currentUser?.id && (
+          <>
+            <button
+              onClick={handleOnEditText}
+              className="btn comment__actions__btn comment__actions__btn--edit"
+            >
+              <ion-icon name="create-outline"></ion-icon>
+              <span>Edit</span>
+            </button>
+            <button
+              onClick={handleOnDeleteComment}
+              className="btn comment__actions__btn comment__actions__btn--delete"
+            >
+              <ion-icon name="trash-outline"></ion-icon>
+              <span>Delete</span>
+            </button>
+          </>
         )}
       </div>
 
@@ -69,9 +81,12 @@ const CommentActions = ({ comment, setIsEditing }) => {
         <CommentBox
           isReply
           repliedToComment={comment}
+          isReplying={isReplying}
           setIsReplying={setIsReplying}
         />
       )}
+
+      {isError && <Error message={error.message} />}
     </div>
   );
 };

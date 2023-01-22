@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { nanoid } from "nanoid";
 import { addUser } from "../redux/slice/usersSlice";
 import { useNavigate } from "react-router-dom";
 import { AVATAR_BASE_URL } from "../config";
+import '../styles/Register.css';
+import { Link } from "react-router-dom";
 
 const Register = () => {
   const { users } = useSelector((state) => state.users);
@@ -12,11 +14,16 @@ const Register = () => {
   const [isError, setIsError] = useState(false);
   const [error, setError] = useState({});
   const navigate = useNavigate();
+  const registerInputRef = useRef();
 
 
   const handleOnUsernameChange = (event) => {
     setUsername(event.target.value);
   };
+
+  useEffect(() => {
+    registerInputRef.current.focus();
+  }, [])
 
   const createUser = () => {
     return {
@@ -47,16 +54,26 @@ const Register = () => {
   return (
     <main className="register">
       <form className="register__form" onSubmit={handleOnRegister}>
-        <input
-          type="text"
-          value={username}
-          onChange={handleOnUsernameChange}
-          placeholder="Username"
-        ></input>
-        <button className="btn register__form__btn" type="submit">Register</button>
+        <div className="register__form__main">
+          <input
+            ref={registerInputRef}
+            className="register__form__input"
+            type="text"
+            value={username}
+            onChange={handleOnUsernameChange}
+            placeholder="Username"
+          ></input>
+          {isError && <span className="register__error">{error.message}</span>}
+        </div>
+        <button className="btn register__form__btn-register" type="submit">
+          Register
+        </button>
+        <span className="register__form__login">Already have an accout? {"  "}
+          <Link to="/login">
+            Log In
+          </Link>
+        </span>
       </form>
-
-      {isError && <span className="register__error">{error.message}</span>}
     </main>
   );
 };

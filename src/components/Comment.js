@@ -2,8 +2,7 @@ import { useSelector, useDispatch } from "react-redux";
 import CommentUserAvatar from "./CommentUserAvatar";
 import CommentsHeader from "./CommentsHeader";
 import CommentActions from "./CommentActions";
-import { getAvatar } from "../utils";
-import { useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { editComment } from "../redux/slice/commentsSlice";
 
 const Comment = ({ comment, isReply }) => {
@@ -11,8 +10,19 @@ const Comment = ({ comment, isReply }) => {
   const [editText, setEditText] = useState(comment.comment);
   const [isEditing, setIsEditing] = useState(false);
   const dispatch = useDispatch();
+  const editInputRef = useRef();
 
   const commentedUser = users.find((user) => user.id === comment.userId);
+
+  useEffect(() => {
+    if (isEditing) {
+      editInputRef.current.focus();
+    }
+  }, [isEditing]);
+
+  const hanldeOnLeaveEdit = () => {
+    setIsEditing(false);
+  }
 
   const handleOnEditTextChange = (event) => {
     setEditText(event.target.value);
@@ -37,6 +47,8 @@ const Comment = ({ comment, isReply }) => {
           {isEditing ? (
             <form className="comment__content__edit__form" onSubmit={handleOnEditText}>
               <input
+                ref={editInputRef}
+                onBlur={hanldeOnLeaveEdit}
                 className="comment__content__edit__input"
                 value={editText}
                 onChange={handleOnEditTextChange}

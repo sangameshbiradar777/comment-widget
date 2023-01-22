@@ -1,0 +1,41 @@
+.register {
+  width: min(90%, 300px);
+  margin: 0 auto;
+}
+
+.register__form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-06);
+}
+
+.register__form__main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-03);
+}
+
+.register__form__input {
+  font-size: var(--fs-04);
+  padding: var(--spacing-04);
+}
+
+.register__form__btn-register {
+  background-color: var(--secondary-main);
+  padding: var(--spacing-05);
+}
+
+.register__form__login {
+  font-size: var(--fs-04);
+}
+
+.register__form__btn:hover,
+.register__form__btn:active,
+.register__form__btn:focus {
+  background-color: var(--secondary-dark);
+}
+
+.register__error {
+  font-size: var(--fs-05);
+  color: var(--error-main);
+}

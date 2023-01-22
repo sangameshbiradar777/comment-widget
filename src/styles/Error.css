@@ -1,4 +1,24 @@
-.error__message {
-  font-size: var(--fs-06);
-  color: red;
+.error {
+  position: fixed;
+  bottom: var(--spacing-04);
+  right: var(--spacing-04);
+  background-color: red;
+  color: #fff;
+  padding: var(--spacing-07) var(--spacing-06);
+  display: flex;
+  gap: var(--spacing-04);
+  align-items: center;
+  font-size: var(--fs-05);
+  z-index: 100;
+}
+
+.error ion-icon{
+  width: var(--spacing-08);
+  height: var(--spacing-08);
+}
+
+.error__close {
+  position: absolute;
+  top: -30px;
+  right: 0;
 }

@@ -1,0 +1,41 @@
+.login {
+  width: min(90%, 300px);
+  margin: 0 auto;
+}
+
+.login__form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-06);
+}
+
+.login__form__main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-03);
+}
+
+.login__form__input {
+  font-size: var(--fs-04);
+  padding: var(--spacing-04);
+}
+
+.login__form__btn-login {
+  background-color: var(--secondary-main);
+  padding: var(--spacing-05);
+}
+
+.login__form__register {
+  font-size: var(--fs-04);
+}
+
+.login__form__btn:hover,
+.login__form__btn:active,
+.login__form__btn:focus {
+  background-color: var(--secondary-dark);
+}
+
+.login__error {
+  font-size: var(--fs-05);
+  color: var(--error-main);
+}

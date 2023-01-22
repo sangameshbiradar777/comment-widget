@@ -1,17 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
 import initialUsers from "../../data/initialUsers";
-import { AVATAR_BASE_URL } from "../../config";
 
 const usersSlice = createSlice({
   name: "users",
   initialState: {
-    currentUser: {
-    name: "Sangamesh",
-    id: 1,
-    registeredOn: "date",
-    avatar: `${AVATAR_BASE_URL}Sangamesh`,
-  },
-    users: initialUsers,
+    currentUser: localStorage.getItem("currentUser") && localStorage.getItem('currentUser') !== 'undefined'
+      ? JSON.parse(localStorage.getItem("currentUser"))
+      : null,
+    users: localStorage.getItem("users")
+      ? JSON.parse(localStorage.getItem("users"))
+      : initialUsers,
   },
   reducers: {
     addUser: (state, action) => {
@@ -22,8 +20,11 @@ const usersSlice = createSlice({
         (user) => user.name === action.payload
       );
     },
+    removeCurrentUser: (state) => {
+      state.currentUser = null;
+    }
   },
 });
 
 export default usersSlice.reducer;
-export const { addUser, setCurrentUser } = usersSlice.actions;
+export const { addUser, setCurrentUser, removeCurrentUser } = usersSlice.actions;

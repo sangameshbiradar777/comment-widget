@@ -1,0 +1,45 @@
+.sort-by {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  flex: 1;
+}
+
+.sort-by__btn {
+  display: flex;
+  gap: var(--spacing-03);
+  align-items: center;
+  justify-content: center;
+  background-color: var(--secondary-dark);
+  padding: var(--spacing-04) var(--spacing-06);
+  flex: 1;
+  width: 100%;
+  color: var(--text-dark-02);
+}
+
+.sort-by__btn ion-icon {
+  width: var(--spacing-06);
+  height: var(--spacing-06);
+  
+}
+
+.sort-by__options {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  position: absolute;
+  top: 110%;
+  border-radius: var(--spacing-03);
+  gap: var(--spacing-02);
+}
+
+.sort-by__option {
+  padding: var(--spacing-05) var(--spacing-06);
+  background-color: var(--secondary-main);
+}
+
+@media screen and (max-width: 800px) {
+  .sort-by__btn  {
+    width: max-content;
+  }
+}
